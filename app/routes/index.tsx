@@ -85,7 +85,12 @@ function ContactForm({Form}: {Form: typeof FormType}) {
     </Form>
   );
 }
-
+    
+/* 
+   This component is only needed if you want to support `rich_text` in the message body. 
+   It would be much simpler to use a `multi_line_text` field definition for this field
+   and then a simple `<textarea />` element in the form
+*/
 function MarkdownMessageField() {
   const [editor] = useState(() => withReact(createEditor()));
   const [ast, setAst] = useState<Descendant[]>([
